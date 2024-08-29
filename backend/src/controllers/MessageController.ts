@@ -170,15 +170,15 @@ export const send = async (req: Request, res: Response): Promise<Response> => {
 
     }
 
-    if (messageData.closeTicket) {
+    // if (messageData.closeTicket) {
       setTimeout(async () => {
         await UpdateTicketService({
           ticketId: ticket.id,
-          ticketData: { status: "closed" },
+          ticketData: { status: "pending" },
           companyId
         });
       }, 1000);
-    }
+    // }
     
     SetTicketMessagesAsRead(ticket);
 
