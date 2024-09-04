@@ -24,7 +24,7 @@ const SendMail = async (email: string, tokenSenha: string) => {
   const transporter = nodemailer.createTransport({
     host: urlSmtp,
     port: Number(process.env.MAIL_PORT),
-    secure: true,
+    secure: false,
     auth: { user: userSmtp, pass: passwordSmpt }
   });
   if (hasResult === true) {
