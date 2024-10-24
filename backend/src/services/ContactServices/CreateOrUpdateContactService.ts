@@ -29,6 +29,7 @@ const CreateOrUpdateContactService = async ({
   whatsappId
 }: Request): Promise<Contact> => {
   const number = isGroup ? rawNumber : rawNumber.replace(/[^0-9]/g, "");
+  // console.log("NumeroLog", number);
 
   const io = getIO();
   let contact: Contact | null;
@@ -42,7 +43,7 @@ const CreateOrUpdateContactService = async ({
 
   if (contact) {
     contact.update({ profilePicUrl });
-    console.log(contact.whatsappId)
+    // console.log(contact.whatsappId)
     if (isNil(contact.whatsappId === null)) {
       contact.update({
         whatsappId

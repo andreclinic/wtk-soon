@@ -74,7 +74,8 @@ export const getContact = async (
 export const store = async (req: Request, res: Response): Promise<Response> => {
   const { companyId } = req.user;
   const newContact: ContactData = req.body;
-  newContact.number = newContact.number.replace("-", "").replace(" ", "");
+  // console.log("Newcontact", newContact);
+  // newContact.number = newContact.number.replace("-", "").replace(" ", "");
 
   const schema = Yup.object().shape({
     name: Yup.string().required(),
@@ -92,6 +93,7 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
   await CheckIsValidContact(newContact.number, companyId);
   const validNumber = await CheckContactNumber(newContact.number, companyId);
   const number = validNumber.jid.replace(/\D/g, "");
+  // console.log("Number--", number);
   newContact.number = number;
 
     // Check if the contact already exists

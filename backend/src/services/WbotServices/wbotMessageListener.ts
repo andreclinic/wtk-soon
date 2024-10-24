@@ -539,13 +539,13 @@ const verifyContact = async (
 
   const contactData = {
     name: msgContact?.name || msgContact.id.replace(/\D/g, ""),
-    number: msgContact.id.replace(/\D/g, ""),
+    number: msgContact.id.replace(/@g\.us$/, ""),
     profilePicUrl,
     isGroup: msgContact.id.includes("g.us"),
     companyId,
     whatsappId: wbot.id
   };
-
+// console.log('contactData', contactData.number);
 
 
   const contact = CreateOrUpdateContactService(contactData);

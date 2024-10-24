@@ -26,6 +26,7 @@ const CreateContactService = async ({
   const numberExists = await Contact.findOne({
     where: { number, companyId }
   });
+  // console.log("NumeroLog", number);
 
   if (numberExists) {
     throw new AppError("ERR_DUPLICATED_CONTACT");

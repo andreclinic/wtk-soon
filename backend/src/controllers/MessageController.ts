@@ -70,7 +70,8 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
 
   SetTicketMessagesAsRead(ticket);
 
-  console.log('bodyyyyyyyyyy:', body)
+  // console.log('bodyyyyyyyyyy:', body)
+  // console.log('Ticket:', ticket)
   if (medias) {
     await Promise.all(
       medias.map(async (media: Express.Multer.File, index) => {
